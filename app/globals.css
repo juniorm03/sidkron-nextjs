@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-dark: #0A1128;
+  --color-brand-card: #14213D;
+  --color-brand-accent: #1D4ED8;
+  --color-brand-accent-hover: #2563EB;
+  --color-brand-text: #F8FAFC;
+  --color-brand-muted: #94A3B8;
+
+  --font-sans: 'Inter', 'system-ui', 'sans-serif';
+}
+
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}
+
