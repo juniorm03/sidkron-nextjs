@@ -3,6 +3,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import SafeIcon from '@/components/SafeIcon';
+import { Button } from '@/components/ui/button';
+
 
 const Hero = () => {
   const scrollToForm = () => {
@@ -13,12 +15,12 @@ const Hero = () => {
 
   return (
     <section 
-      className="relative min-h-screen flex items-center pt-2 overflow-hidden bg-brand-dark"
+      className="pt-24 md:pt-32 relative min-h-screen flex items-center overflow-hidden bg-brand-dark"
       style={{
         backgroundImage: `linear-gradient(to bottom, rgba(5, 8, 19, 0.95), rgba(5, 8, 19, 0.7)), url(${bgUrl})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundAttachment: 'fixed' // Cria um efeito de paralaxe suave
+        backgroundAttachment: 'fixed'
       }}
     >
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
@@ -51,12 +53,16 @@ const Hero = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button
+              
+              <Button
+                variant="default"
                 onClick={scrollToForm}
-                className="w-full sm:w-auto bg-brand-accent hover:bg-brand-accent-hover text-white px-8 py-4 rounded-md font-semibold text-lg transition-all transform hover:-translate-y-1 shadow-[0_0_20px_rgba(37,99,235,0.3)] flex items-center justify-center gap-2"
+                className="w-full sm:w-auto h-auto px-8 py-4 rounded-md font-semibold text-lg transition-all transform hover:-translate-y-1 shadow-glow flex items-center justify-center gap-2 bg-brand-accent hover:bg-brand-accent-hover"
               >
-                Agendar avaliação <SafeIcon name="ArrowRight" />
-              </button>
+                Fazer diagnóstico <SafeIcon name="ArrowRight" />
+
+              </Button>
+
             </div>
           </motion.div>
         </div>

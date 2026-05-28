@@ -29,13 +29,13 @@ const Schedule = () => {
   };
 
   return (
-    <section id="agendar" className="py-24 bg-brand-dark relative border-t border-white/5">
+    <section id="agendar" className="py-24 bg-brand-dark relative border-t border-brand-border">
       <div className="container mx-auto px-6 max-w-3xl">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-brand-card p-8 md:p-12 rounded-2xl shadow-2xl border border-white/5"
+          className="bg-brand-card p-8 md:p-12 rounded-2xl shadow-2xl border border-brand-border"
         >
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-brand-text mb-4">Agendar avaliação</h2>

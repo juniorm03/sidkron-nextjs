@@ -1,25 +1,61 @@
 @import "tailwindcss";
 
 @theme {
+  /* --- Identidade Visual Sidkron --- */
   --color-brand-dark: #0A1128;
   --color-brand-card: #14213D;
-  --color-brand-accent: #1D4ED8;
-  --color-brand-accent-hover: #2563EB;
   --color-brand-text: #F8FAFC;
   --color-brand-muted: #94A3B8;
+  --color-brand-accent: #1365B6;
+  --color-brand-accent-hover: #4C7FEE;
+  --color-brand-secondary: #34ABE7;
+  --color-brand-secondary-hover: #0369A1;
+  --color-brand-success: #10B981;
+  --color-brand-warning: #F59E0B;
+  --color-brand-error: #EF4444;
+  --color-brand-info: #3B82F6;
+  --color-brand-border: rgba(248, 250, 252, 0.1);
+  --color-brand-border-light: rgba(248, 250, 252, 0.05);
 
-  --font-sans: 'Inter', 'system-ui', 'sans-serif';
+  /* --- Mapeamento para o Shadcn funcionar na v4 --- */
+  --color-background: var(--color-brand-dark);
+  --color-foreground: var(--color-brand-text);
+  --color-card: var(--color-brand-card);
+  --color-card-foreground: var(--color-brand-text);
+  --color-primary: var(--color-brand-accent);
+  --color-primary-foreground: var(--color-brand-text);
+  --color-secondary: var(--color-brand-secondary);
+  --color-secondary-foreground: var(--color-brand-text);
+  --color-muted: var(--color-brand-muted);
+  --color-muted-foreground: #64748B;
+  --color-accent: var(--color-brand-accent);
+  --color-accent-foreground: var(--color-brand-text);
+  --color-border: var(--color-brand-border);
+  --color-input: var(--color-brand-border);
+
+  /* --- Tipografia e Efeitos --- */
+  --font-sans: "Inter", system-ui, sans-serif;
+  --shadow-glow: 0 0 20px rgba(29, 78, 216, 0.3);
+  --animate-fade-in: fadeIn 0.5s ease-in;
 }
 
-
-body {
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-#root {
-  width: 100%;
-  height: 100%;
+@layer base {
+  body {
+    @apply bg-brand-dark text-brand-text font-sans antialiased;
+  }
 }
 
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

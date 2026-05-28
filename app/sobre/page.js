@@ -8,7 +8,7 @@ export default function SobrePage() {
         <div className="min-h-screen bg-brand-dark text-brand-text font-sans selection:bg-brand-accent selection:text-white">
             
             <main>
-                <section className="relative pt-20 sm:pt-24 pb-10 sm:pb-16 overflow-hidden">
+                <section className="pt-24 md:pt-32 relative sm:pt-24 pb-10 sm:pb-16 overflow-hidden">
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-linear-to-b from-brand-accent/10 to-transparent -z-10" />
                     <div className="container mx-auto px-4 sm:px-6 max-w-7xl text-center">
                         <motion.h1 
@@ -39,7 +39,7 @@ export default function SobrePage() {
                                     { num: '98%', label: 'Satisfação' },
                                     { num: '24/7', label: 'Monitoramento' },
                                 ].map((stat, i) => (
-                                    <div key={i} className="bg-brand-card p-3 sm:p-4 md:p-6 rounded-xl sm:rounded-2xl border border-white/5 hover:border-brand-accent/30 transition-all duration-300 text-center group">
+                                    <div key={i} className="bg-brand-card p-3 sm:p-4 md:p-6 rounded-xl sm:rounded-2xl border border-brand-border hover:border-brand-accent/30 transition-all duration-300 text-center group">
                                         <span className="block text-2xl sm:text-3xl font-bold text-brand-accent mb-1 sm:mb-2 group-hover:scale-110 transition-transform">{stat.num}</span>
                                         <span className="text-[10px] sm:text-xs text-brand-muted uppercase tracking-widest font-medium leading-tight">{stat.label}</span>
                                     </div>
@@ -70,22 +70,26 @@ export default function SobrePage() {
                 <section className="py-8 sm:py-12 md:py-16">
                     <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 border-b-3 border-brand-accent pb-8 sm:pb-10 md:pb-12">
-                            <div className="bg-brand-card/50 p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl border border-white/5">
+                            <div className="bg-brand-card/50 p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl border border-brand-border">
                                 <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-brand-text">Missão</h3>
                                 <p className="text-justify text-brand-muted leading-relaxed text-xs sm:text-sm">
                                     Proteger organizações oferecendo serviços personalizados de cibersegurança que garantem a integridade, confidencialidade e disponibilidade de seus dados, reduzindo riscos de incidentes e fortalecendo a confiança em seus negócios.
                                 </p>
                             </div>
-                            <div className="bg-brand-card/50 p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl border border-white/5">
-                                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-brand-text">Visão</h3>
-                                <p className="text-justify text-brand-muted leading-relaxed text-xs sm:text-sm">
-                                    Ser referência nacional em cibersegurança, reconhecida por integrar tecnologia avançada e expertise humana para proteger dados e processos com eficiência, qualidade, transparência e ética, inspirando confiança no mercado e investidores.
-                                </p>
-                            </div>
-                            <div className="bg-brand-card/50 p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl border border-white/5">
+                            <div className="bg-brand-card/50 p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl border border-brand-border">
                                 <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-brand-text">Valores</h3>
                                 <ul className="space-y-1 sm:space-y-2 text-brand-muted text-xs sm:text-sm">
                                     {['Integridade', 'Colaboração', 'Excelência técnica', 'Segurança e confiança', 'Compromisso com a excelência', 'Evolução contínua'].map((v, i) => (
+                                        <li key={i} className="flex items-center gap-3">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-brand-accent" /> {v}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div className="bg-brand-card/50 p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl border border-brand-border">
+                                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-brand-text">Atuamos com:</h3>
+                                <ul className="space-y-1 sm:space-y-2 text-brand-muted text-xs sm:text-sm">
+                                    {['Gestão de Risco Cibernético', 'Segurança Cibernética', 'Gestão de Vulnerabilidades', 'Pentest', 'Gestão de Riscos Humanos', 'Consultoria e Treinamentos', 'Compliance e Governança'].map((v, i) => (
                                         <li key={i} className="flex items-center gap-3">
                                             <div className="w-1.5 h-1.5 rounded-full bg-brand-accent" /> {v}
                                         </li>
@@ -112,32 +116,6 @@ export default function SobrePage() {
                                 </p>
                                 
                             </div>
-
-                {/* Equipe */}
-                <section className="py-8 sm:py-12 md:py-16 bg-brand-dark/50">
-                    <div className="container mx-auto px-4 sm:px-6 max-w-7xl text-center">
-                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Nossa Equipe</h2>
-                        <p className="text-brand-muted max-w-2xl mx-auto mb-8 sm:mb-10 md:mb-12 text-sm sm:text-base">
-                            Contamos com especialistas certificados em segurança cibernética, com anos de experiência em proteção de infraestruturas críticas.
-                        </p>
-                        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-                            {[
-                                { name: 'Nome', role: 'Função' },
-                                { name: 'Nome', role: 'Função' },
-                                { name: 'Nome', role: 'Função' },
-                                { name: 'Nome', role: 'Função' },
-                            ].map((member, i) => (
-                                <div key={i} className="group">
-                                    <div className="w-16 sm:w-20 h-16 sm:h-20 bg-brand-card rounded-full mx-auto mb-3 sm:mb-4 border-2 border-transparent group-hover:border-brand-accent transition-all duration-300 overflow-hidden">
-                                        <div className="w-full h-full bg-linear-to-br from-brand-accent/20 to-brand-dark" />
-                                    </div>
-                                    <h4 className="text-sm sm:text-lg font-bold">{member.name}</h4>
-                                    <span className="text-brand-accent text-[10px] sm:text-xs uppercase tracking-widest">{member.role}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
 
             </main>
 

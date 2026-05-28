@@ -1,6 +1,7 @@
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/sections/Footer';
+import LeadPopup from '@/components/LeadPopup';
 
 
 export const metadata = {
@@ -14,6 +15,7 @@ export default function RootLayout({ children }) {
       <body>
         <Navbar />
         {children}
+        <LeadPopup />
         <Footer />
       </body>
     </html>
