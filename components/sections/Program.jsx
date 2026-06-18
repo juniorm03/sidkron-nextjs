@@ -32,7 +32,7 @@ const Program = () => {
   const bgUrl = "https://sidkron.com.br/wp-content/uploads/2026/02/Insights-em-seguranca-cibernetica.png";
 
   return (
-    <section className="py-24 bg-[#080d1e] relative overflow-hidden">
+    <section className="py-24 bg-brand-dark relative overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
           src={bgUrl}
@@ -44,7 +44,7 @@ const Program = () => {
         <div 
           className="absolute inset-0" 
           style={{
-            background: `radial-gradient(circle, rgba(8, 13, 30, 0.4) 0%, rgba(8, 13, 30, 0.95) 100%)`
+            background: `radial-gradient(circle, rgba(10, 17, 40, 0.4) 0%, rgba(10, 17, 40, 0.95) 100%)`
           }}
         />
       </div>

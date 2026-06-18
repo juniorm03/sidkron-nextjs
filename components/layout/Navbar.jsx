@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import SafeIcon from '@/components/SafeIcon';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Menu, X } from 'lucide-react';
 
 const navLinks = [
   { href: '/', label: 'Início' },
@@ -18,85 +18,74 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToForm = () => {
-    const formSection = document.getElementById('agendar');
-    if (formSection) formSection.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <nav className="sticky top-0 w-full z-50 transition-all duration-300 border-b-2 border-brand-muted/20 bg-brand-dark shadow-lg py-4">
+    <nav 
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+        scrolled 
+          ? 'bg-brand-dark/90 backdrop-blur-md py-4 border-b border-brand-accent/20 shadow-lg' 
+          : 'bg-transparent py-7 border-b border-transparent'
+      }`}
+    >
       <div className="container mx-auto px-6 max-w-7xl flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-2 text-brand-text font-bold text-2xl tracking-tighter">
+        {/* LOGO */}
+        <Link href="/" className="flex items-center">
           <Image
             src="/logos/logo_horizontal_fundo_preto.png"
             alt="Logo Sidkron"
-            width={150}
-            height={40}
-            style={{ height: 'auto' }}
-            className="h-10 w-auto object-contain"
+            width={180} 
+            height={45}
+            className="h-10 sm:h-12 w-auto object-contain transition-transform duration-300"
+            style={{ transform: scrolled ? 'scale(0.98)' : 'scale(1)' }}
             priority
           />
         </Link>
         
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-6">
+        {/* DESKTOP MENU */}
+        <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <Link 
               key={link.href}
               href={link.href}
-              className="text-brand-muted hover:text-brand-text transition-colors text-sm font-medium"
+              className={`transition-colors text-base font-bold tracking-tight ${
+                scrolled ? 'text-brand-text hover:text-brand-accent' : 'text-white hover:text-brand-accent'
+              }`}
             >
               {link.label}
             </Link>
           ))}
         </div>
 
-        <div className="flex items-center gap-2">
-          <button 
-            onClick={scrollToForm}
-            className="bg-brand-accent hover:bg-brand-accentHover text-white px-6 py-2.5 rounded-md font-medium transition-colors duration-300 text-sm md:text-base hidden sm:block"
-          >
-            Agendar avaliação
-          </button>
-          
-          {/* Mobile Menu Button */}
-          <button 
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-brand-text p-2 sm:hidden"
-          >
-            <SafeIcon name={mobileMenuOpen ? 'X' : 'Menu'} />
-          </button>
-        </div>
+        {/* MOBILE TOGGLE (HAMBÚRGUER) */}
+        <button 
+          className="md:hidden text-white p-2 transition-colors hover:text-brand-accent"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        >
+          {mobileMenuOpen ? <X size={32} /> : <Menu size={32} />}
+        </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU (OVERLAY) */}
       {mobileMenuOpen && (
-        <div className="sm:hidden bg-brand-dark border-t border-brand-muted/20">
-          <div className="px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden bg-brand-dark/98 backdrop-blur-2xl border-t border-brand-accent/20 h-screen overflow-hidden">
+          <div className="px-6 py-8 flex flex-col gap-2 items-center">
             {navLinks.map((link) => (
               <Link 
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-brand-muted hover:text-brand-text transition-colors text-base font-medium py-2"
+                className="text-brand-text text-lg font-bold py-4 border-b border-white/5 w-full text-center active:bg-brand-accent/10 transition-colors"
               >
                 {link.label}
               </Link>
             ))}
-            <button 
-              onClick={() => {
-                setMobileMenuOpen(false);
-                scrollToForm();
-              }}
-              className="bg-brand-accent text-white px-6 py-3 rounded-md font-medium text-center"
-            >
-              Agendar avaliação
-            </button>
+            
           </div>
         </div>
       )}

@@ -14,7 +14,7 @@ const listItems = [
 
 const Problem = () => {
   return (
-    <section className="py-24 bg-brand-dark relative border-t border-white/5">
+    <section className="py-24 bg-brand-dark relative border-t border-brand-border">
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="grid lg:grid-cols-2 gap-16 lg:items-center">
 
@@ -43,7 +43,7 @@ const Problem = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-brand-card p-8 md:p-10 rounded-2xl border border-white/5 shadow-xl"
+            className="bg-brand-card p-8 md:p-10 rounded-2xl border border-brand-border shadow-xl"
           >
             <h3 className="text-justify text-xl font-semibold text-brand-text mb-6">
               A interação entre tecnologia, processos e pessoas amplia as possibilidades de exposição.
